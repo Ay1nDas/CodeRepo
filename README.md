@@ -1,3 +1,3 @@
 # This is My CODING Repository
 
-Here All the Coding I did in my College Time are present.
+Here All the Coding I did durring my College Time are present.
