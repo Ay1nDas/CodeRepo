@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+
+    <style>
+      /* .js-cls1 {
+        background-color: red;
+      } */
+    </style>
+  </head>
+  <body>
+    <button
+      class="js-cls1"
+      onClick="
+    subscribe();
+    "
+    >
+      Subscribe Me
+    </button>
+
+    <script>
+      function subscribe() {
+        const subscribeElement = document.querySelector('.js-cls1');
+
+        if (subscribeElement.innerText === 'Subscribe Me') {
+          subscribeElement.innerText = 'Subscribed';
+        } else {
+          subscribeElement.innerText = 'Subscribe Me';
+        }
+      }
+    </script>
+  </body>
+</html>

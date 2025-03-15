@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Updating Input as we type</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      .input-box {
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid #000;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      placeholder="Enter"
+      class="inputValue input-box"
+      onkeyup="
+        updatePara();
+      "
+    />
+    <button
+      onclick="
+        eraseAll();
+    "
+    >
+      Erase
+    </button>
+    <p class="js-para"></p>
+    <script>
+      function updatePara() {
+        const inputValue = document.querySelector('.inputValue');
+        // console.log(inputValue.value);
+        document.querySelector('.js-para').textContent = inputValue.value;
+      }
+
+      function eraseAll() {
+        document.querySelector('.inputValue').value = '';
+        document.querySelector('.js-para').textContent = '';
+      }
+    </script>
+  </body>
+</html>

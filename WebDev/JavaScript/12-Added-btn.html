@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Added</title>
+  </head>
+  <body>
+    <button
+      class="js-add-btn"
+      onclick="
+      popupAdded();
+      "
+    >
+      Add
+    </button>
+    <p class="js-added-para"></p>
+  </body>
+
+  <script>
+    let intervalID;
+
+    function popupAdded() {
+      clearInterval(intervalID);
+      const addedPara = document.querySelector('.js-added-para');
+      addedPara.textContent = 'Added';
+
+      intervalID = setInterval(function () {
+        {
+          // const addedPara = document.querySelector('.js-added-para');
+          addedPara.textContent = ' ';
+        }
+      }, 1000);
+    }
+  </script>
+</html>

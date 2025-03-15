@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <header>
+      <h1>Rock Paper Scissors GAME</h1>
+    </header>
+
+    <div class="move-choice">
+      <button class="rock" onclick="playGame('rock');">✊</button>
+      <p>Rock</p>
+      <button class="paper" onclick="playGame('paper');">🖐️</button>
+      <p>Paper</p>
+      <button class="scissors" onclick="playGame('scissors');">✌️</button>
+      <p>Scissors</p>
+    </div>
+    <div class="outcome">
+      <p class="player-Move-text move-text">Your Move</p>
+      <p class="player-Move js-player-move move"></p>
+
+      <p class="computer-Move-text move-text">Computer's Move</p>
+      <p class="computer-Move js-comp-move move"></p>
+      <p class="verdict js-verdict">[Game Verdict]</p>
+      <!-- <p class="verdict win loose  tie">[Game Verdict]</p> -->
+      <!-- Add win loose class to add style -->
+    </div>
+
+    <div class="score-board">
+      <h2 class="score-heading">SCORE</h2>
+      <div class="score">
+        <p class="total-Text">Total:</p>
+        <p class="Total-cnt js-total cnt"></p>
+        <p class="win-Text">Wins:</p>
+        <p class="win-cnt js-win cnt"></p>
+        <p class="looses-text">Looses:</p>
+        <p class="looses-cnt js-lose cnt"></p>
+        <p class="ties-text">Ties:</p>
+        <p class="ties-cnt js-tie cnt"></p>
+      </div>
+      <button
+        class="reset js-reset"
+        onclick="
+        resetScore();
+      "
+      >
+        Reset Score
+      </button>
+
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>

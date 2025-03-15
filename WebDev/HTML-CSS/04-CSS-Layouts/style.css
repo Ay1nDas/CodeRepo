@@ -1,0 +1,323 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  border-top: 10px solid #1098ad;
+  border-bottom: 10px solid #1098ad;
+  color: #444;
+  position: relative;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.main-header {
+  background-color: #f7f7f7;
+  padding: 20px 40px;
+  /* text-align: center; */
+  /* height: 80px; */
+  font-size: 20px;
+  color: #f7f7f7;
+}
+
+article {
+  padding: 60px 10px;
+}
+
+.post-header {
+  margin-bottom: 40px;
+}
+
+h1,
+h2,
+h3 {
+  color: #1098ad;
+}
+
+h1 {
+  font-size: 32px;
+  font-style: italic;
+  /* margin-bottom: 15px; */
+}
+
+h1::first-letter {
+  font-style: normal;
+  margin-right: 5px;
+}
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+h2::after {
+  content: 'TOP';
+  font-size: 12px;
+  color: #444;
+  display: inline-block;
+  background-color: #ffe70e;
+  padding: 5px;
+
+  position: absolute;
+  top: -10px;
+  right: -25px;
+}
+
+h3 {
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+p {
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+ol,
+ul {
+  /* padding: 0 60px; */
+  margin-left: 50px;
+  margin-bottom: 10px;
+}
+
+li {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+li:last-child {
+  margin-bottom: 0;
+}
+
+footer p {
+  font-size: 12px;
+  margin: 5px 2px;
+}
+
+/* article header p {
+  font-size: 16px;
+  font-style: italic;
+} */
+
+#author {
+  font-size: 18px;
+  font-style: italic;
+}
+.author {
+  margin-bottom: 0;
+}
+
+.related-author {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+aside {
+  background-color: #f7f7f7;
+  border-top: 5px solid #1098ad;
+  border-bottom: 5px solid #1098ad;
+  padding: 30px 20px;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  /* width: 500px; */
+}
+
+.pictures {
+  border: 2.5px solid #1098ad;
+}
+
+.related-posts {
+  list-style: none;
+  margin: 0;
+}
+
+/* li:nth-child(odd) {
+  color: #fb0505;
+} */
+
+.back-to-top a strong {
+  font-size: 14px;
+  border: 1.5px solid #1098ad;
+  padding: 2px 3px;
+}
+
+.back-to-top {
+  text-align: right;
+  margin-right: 20px;
+}
+
+.post-heading {
+  text-decoration: underline;
+  margin-bottom: 40px;
+}
+
+a:link {
+  font-size: 18px;
+  font-family: 'Lucida Sans';
+  color: #1098ad;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1098ad;
+}
+
+a:hover {
+  color: #0eb8d2b7;
+  font-size: 18.5px;
+  text-decoration: underline;
+  /* font-weight:bold; */
+  /* font-style:italic; */
+}
+
+a:active {
+  background-color: #0eb8d21f;
+}
+
+nav a:link {
+  margin: 7px;
+}
+
+button {
+  font-size: 24px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  border: none;
+  border: 2px solid #749ba1;
+  cursor: pointer;
+  position: absolute;
+  right: 50px;
+  bottom: 100px;
+}
+
+button:hover {
+  background-color: #1098ad32;
+  color: #444;
+}
+
+button:active {
+  background-color: #1098ade8;
+  color: #f7f7f7;
+}
+
+.post-img {
+  width: 100%;
+  height: auto;
+}
+
+/* Floats */
+
+/* .author-img { 
+  float: left;
+  margin-bottom: 10px;
+}
+
+.author {
+  float: left;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  float: left;
+  margin-bottom: 0;
+}
+
+.main-nav {
+  float: right;
+  margin-top: 5px;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+ article {
+  width: 800px;
+  float: left;
+}
+aside {
+  width: 330px;
+  float: right;
+  margin-top: 60px;
+}
+
+footer {
+  clear: both;
+}
+
+.back-to-top {
+  clear: both;
+} 
+*/
+
+/* Flexbox */
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.author-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.related-posts {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.related-author {
+  margin-bottom: 0;
+  margin-left: 0;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.related-link:link {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.related {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+article {
+  flex: 0 0 825px;
+}
+
+aside {
+  flex: 0 0 300px;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listener</title>
+  </head>
+  <body>
+    <button class="js-add-btn">Add</button>
+    <p class="js-added-para"></p>
+
+    <script>
+      let i = 0;
+
+      document.querySelector('.js-add-btn').addEventListener('click', () => {
+        document.querySelector('.js-added-para').textContent = ++i;
+      });
+    </script>
+  </body>
+</html>

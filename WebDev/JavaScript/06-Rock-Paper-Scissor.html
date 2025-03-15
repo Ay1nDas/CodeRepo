@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+
+    <style>
+      body {
+        width: 700px;
+        margin: 100px auto;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 42px;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+      }
+
+      button {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Rock Paper Scissors Game.</p>
+
+    <div class="buttons">
+      <button
+        onclick="
+        console.log('You chose Rock');
+        let rand1 = Math.random();
+        if(rand1 < 0.34) {
+          console.log('Computer chose Rock');
+          console.log('Tie!.');
+        } else if(rand1 <= 0.67) {
+          console.log('Computer chose Paper');
+          console.log('You Loose.');
+        } else {
+          console.log('Computer chose Scissors');
+          console.log('You Win.');
+        }
+        "
+      >
+        Rock
+      </button>
+
+      <button
+        onclick="
+        console.log('You chose Paper');
+        let rand2 = Math.random();
+        if(rand2 < 0.34) {
+          console.log('Computer chose Rock');
+          console.log('You Win.');
+        } else if(rand2 <= 0.67) {
+          console.log('Computer chose Paper');
+          console.log('Tie!.');
+        } else {
+          console.log('Computer chose Scissors');
+          console.log('You Loose.');
+        }
+        "
+      >
+        Paper
+      </button>
+
+      <button
+        onclick="
+        console.log('You chose Scissors');
+        let rand3 = Math.random();
+        if(rand3 < 0.34) {
+          console.log('Computer chose Rock');
+          console.log('You Loose.');
+        } else if(rand3 <= 0.67) {
+          console.log('Computer chose Paper');
+          console.log('You Win.');
+        } else {
+          console.log('Computer chose Scissors');
+          console.log('Tie!.');
+        }
+        "
+      >
+        Scissors
+      </button>
+    </div>
+  </body>
+
+  <script></script>
+</html>
