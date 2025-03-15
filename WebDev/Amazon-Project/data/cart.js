@@ -1,3 +1,1 @@
-let totalCartItem = 0;
-
-cart = [];
+export let cart = [];
