@@ -79,3 +79,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     console.log(totalCartItem);
   });
 });
+
+// localStorage.removeItem('cart');
+// localStorage.removeItem('totalCartItem');

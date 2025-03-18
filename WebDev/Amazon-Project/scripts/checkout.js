@@ -3,6 +3,16 @@ import { cart, totalCartItem, deleteItem } from '../data/cart.js';
 import { formatCurrency } from './utils/money.js';
 
 function renderCart() {
+  if (totalCartItem < 2) {
+    document.querySelector(
+      '.js-item-count'
+    ).innerHTML = ` ${totalCartItem} item `;
+  } else {
+    document.querySelector(
+      '.js-item-count'
+    ).innerHTML = ` ${totalCartItem} items `;
+  }
+
   let orderHTML = '';
 
   // console.log(cart);
