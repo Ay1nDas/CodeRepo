@@ -1,8 +1,8 @@
 import { products } from '../data/products.js';
-import { cart, totalCartItem } from '../data/cart.js';
+import { cart, totalCartItem, deleteItem } from '../data/cart.js';
 import { formatCurrency } from './utils/money.js';
 
-function orderSummary() {
+function renderCart() {
   let orderHTML = '';
 
   // console.log(cart);
@@ -19,7 +19,8 @@ function orderSummary() {
     // console.log(display_product);
 
     orderHTML += `
-    <div class="cart-item-container">
+    <div class="cart-item-container 
+      js-item-${productID}">
             <div class="delivery-date">Delivery date: Tuesday, June 21</div>
 
             <div class="cart-item-details-grid">
@@ -30,7 +31,7 @@ function orderSummary() {
 
               <div class="cart-item-details">
                 <div class="product-name">
-                  ${display_product.name}
+                ${display_product.name}
                 </div>
                 <div class="product-price">
                 $${formatCurrency(display_product.priceCents)}
@@ -42,7 +43,7 @@ function orderSummary() {
                   <span class="update-quantity-link link-primary">
                     Update
                   </span>
-                  <span class="delete-quantity-link link-primary">
+                  <span class="js-delete-quantity-link delete-quantity-link link-primary" data-product-index="${index}">
                     Delete
                   </span>
                 </div>
@@ -92,5 +93,12 @@ function orderSummary() {
           `;
   });
   document.querySelector('.js-order-summary').innerHTML = orderHTML;
+
+  document.querySelectorAll('.js-delete-quantity-link').forEach((del_btn) => {
+    del_btn.addEventListener('click', () => {
+      const removedItem = deleteItem(del_btn.dataset.productIndex);
+      renderCart();
+    });
+  });
 }
-orderSummary();
+renderCart();
