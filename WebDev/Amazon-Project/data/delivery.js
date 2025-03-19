@@ -19,6 +19,18 @@ export const deliveryOptions = [
   },
 ];
 
+export function getDeliveryOption(deliveryId) {
+  let requiredDeliveryOption;
+  deliveryOptions.forEach((element) => {
+    if (element.id === deliveryId) {
+      requiredDeliveryOption = element;
+      return;
+    }
+  });
+  // return requiredDeliveryOption || deliveryOptions[0];
+  return requiredDeliveryOption;
+}
+
 export function generateDelivery(productId, deliveryId, index) {
   let deliveryHTML = ``;
 
