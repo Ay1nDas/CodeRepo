@@ -36,6 +36,7 @@ export function addToCart(productID) {
     cart.push({
       productID: productID,
       quantity: 1,
+      deliveryId: 1,
     });
 
     totalCartItem += 1;
@@ -56,4 +57,13 @@ export function deleteItem(index) {
 export function saveCartToLocal() {
   localStorage.setItem('cart', JSON.stringify(cart));
   localStorage.setItem('totalCartItem', JSON.stringify(totalCartItem));
+}
+
+export function changeDelivery(productId, delOptId) {
+  cart.forEach((cartItem) => {
+    if (cartItem.productID === productId) {
+      cartItem.deliveryId = delOptId;
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  });
 }

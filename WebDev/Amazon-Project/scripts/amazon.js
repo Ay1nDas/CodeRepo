@@ -60,6 +60,12 @@ products.forEach((product) => {
 });
 
 function updateCartQuantity() {
+  // if (totalCartItem) {
+  //   document.querySelector('.cart-quantity').innerText = totalCartItem;
+  // } else {
+  //   document.querySelector('.cart-quantity').innerText = ``;
+  // }
+
   document.querySelector('.cart-quantity').innerText = totalCartItem;
 }
 updateCartQuantity();
