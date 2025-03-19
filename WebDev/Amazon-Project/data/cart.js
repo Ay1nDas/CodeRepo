@@ -18,6 +18,7 @@
 // ];
 
 export let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
 export let totalCartItem =
   JSON.parse(localStorage.getItem('totalCartItem')) || 0;
 
@@ -36,7 +37,7 @@ export function addToCart(productID) {
     cart.push({
       productID: productID,
       quantity: 1,
-      deliveryId: 1,
+      deliveryId: '1',
     });
 
     totalCartItem += 1;

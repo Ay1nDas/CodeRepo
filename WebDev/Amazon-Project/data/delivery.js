@@ -27,8 +27,8 @@ export function getDeliveryOption(deliveryId) {
       return;
     }
   });
-  // return requiredDeliveryOption || deliveryOptions[0];
-  return requiredDeliveryOption;
+  return requiredDeliveryOption || deliveryOptions[0];
+  // return requiredDeliveryOption;
 }
 
 export function generateDelivery(productId, deliveryId, index) {

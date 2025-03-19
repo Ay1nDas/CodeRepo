@@ -1,3 +1,4 @@
+import { renderPage } from '../checkout.js';
 import { products, getProduct } from '../../data/products.js';
 import {
   cart,
@@ -86,7 +87,8 @@ export function renderCart() {
   document.querySelectorAll('.js-delete-quantity-link').forEach((del_btn) => {
     del_btn.addEventListener('click', () => {
       const removedItem = deleteItem(del_btn.dataset.productIndex);
-      renderCart();
+      // renderCart();
+      renderPage();
     });
   });
 
@@ -97,7 +99,8 @@ export function renderCart() {
       const productId = deliveryElement.dataset.productId;
       deliveryElement.addEventListener('click', () => {
         changeDelivery(productId, deliveryId);
-        renderCart();
+        // renderCart();
+        renderPage();
       });
     });
 }

@@ -1,3 +1,8 @@
 import { renderCart } from './checkout/orders.js';
+import { renderPaymentSummary } from './checkout/payment.js';
 
-renderCart();
+export function renderPage() {
+  renderCart();
+  renderPaymentSummary();
+}
+renderPage();
