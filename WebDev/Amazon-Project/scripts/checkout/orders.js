@@ -57,7 +57,7 @@ export function renderCart() {
             ${display_product.name}
             </div>
             <div class="product-price">
-            $${formatCurrency(display_product.priceCents)}
+            $${display_product.getPrice()}
             </div>
             <div class="product-quantity">
               <span> Quantity: <span class="quantity-label">${

@@ -1,13 +1,47 @@
-export function getProduct(productId) {
-  let requiredProduct;
-  products.forEach((product) => {
-    if (productId === product.id) {
-      // console.log(product);
-      requiredProduct = product;
-      return;
-    }
-  });
-  return requiredProduct;
+import { formatCurrency } from '../scripts/utils/money.js';
+
+class Product {
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+
+  constructor(productDetails) {
+    this.id = productDetails.id;
+    this.image = productDetails.image;
+    this.name = productDetails.name;
+    this.rating = productDetails.rating;
+    this.priceCents = productDetails.priceCents;
+  }
+
+  getStars() {
+    return `images/ratings/rating-${this.rating.stars * 10}.png`;
+  }
+
+  getPrice() {
+    return formatCurrency(this.priceCents);
+  }
+
+  extraDetails() {
+    return '';
+  }
+}
+
+class Clothing extends Product {
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails);
+
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraDetails() {
+    return `
+    <a href = "${this.sizeChartLink}" target = "_blank">Size Chart</a>
+    `;
+  }
 }
 
 export const products = [
@@ -481,4 +515,22 @@ export const products = [
     priceCents: 2400,
     keywords: ['sweaters', 'hoodies', 'apparel', 'mens'],
   },
-];
+].map((productDetails) => {
+  if (productDetails.type === 'clothing') {
+    return new Clothing(productDetails);
+  } else {
+    return new Product(productDetails);
+  }
+});
+
+export function getProduct(productId) {
+  let requiredProduct;
+  products.forEach((product) => {
+    if (productId === product.id) {
+      // console.log(product);
+      requiredProduct = product;
+      return;
+    }
+  });
+  return requiredProduct;
+}
