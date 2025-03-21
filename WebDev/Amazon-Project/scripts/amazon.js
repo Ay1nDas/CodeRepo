@@ -1,11 +1,14 @@
 import { cart, totalCartItem, addToCart } from '../data/cart.js';
-import { products } from '../data/products.js';
+import { products, loadProducts } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
-let productsHTML = '';
+loadProducts(renderCart);
 
-products.forEach((product) => {
-  productsHTML += `
+function renderCart() {
+  let productsHTML = '';
+
+  products.forEach((product) => {
+    productsHTML += `
       <div class="product-container">
         <div    class="product-image-container">
           <img class="product-image"
@@ -57,34 +60,35 @@ products.forEach((product) => {
         </button>
       </div>
     `;
-});
-
-function updateCartQuantity() {
-  // if (totalCartItem) {
-  //   document.querySelector('.cart-quantity').innerText = totalCartItem;
-  // } else {
-  //   document.querySelector('.cart-quantity').innerText = ``;
-  // }
-
-  document.querySelector('.cart-quantity').innerText = totalCartItem;
-}
-updateCartQuantity();
-
-document.querySelector('.products-grid').innerHTML = productsHTML;
-
-// console.log(productsHTML);
-
-document.querySelectorAll('.js-add-to-cart').forEach((button) => {
-  button.addEventListener('click', () => {
-    // const productID = button.dataset.productId;
-    addToCart(button.dataset.productId);
-    // console.log('click');
-
-    updateCartQuantity();
-    console.log(cart);
-    console.log(totalCartItem);
   });
-});
 
-// localStorage.removeItem('cart');
-// localStorage.removeItem('totalCartItem');
+  function updateCartQuantity() {
+    // if (totalCartItem) {
+    //   document.querySelector('.cart-quantity').innerText = totalCartItem;
+    // } else {
+    //   document.querySelector('.cart-quantity').innerText = ``;
+    // }
+
+    document.querySelector('.cart-quantity').innerText = totalCartItem;
+  }
+  updateCartQuantity();
+
+  document.querySelector('.products-grid').innerHTML = productsHTML;
+
+  // console.log(productsHTML);
+
+  document.querySelectorAll('.js-add-to-cart').forEach((button) => {
+    button.addEventListener('click', () => {
+      // const productID = button.dataset.productId;
+      addToCart(button.dataset.productId);
+      // console.log('click');
+
+      updateCartQuantity();
+      console.log(cart);
+      console.log(totalCartItem);
+    });
+  });
+
+  // localStorage.removeItem('cart');
+  // localStorage.removeItem('totalCartItem');
+}
