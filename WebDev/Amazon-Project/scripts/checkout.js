@@ -3,8 +3,13 @@ import { renderPaymentSummary } from './checkout/payment.js';
 import { loadProductsFetch } from '../data/products.js';
 
 async function loadPage() {
-  await loadProductsFetch();
-
+  try {
+    await loadProductsFetch();
+  } catch (error) {
+    document.body.innerHTML = `
+    <h1>ERROR 404. Couldn't Load the Page.</h1>
+    `;
+  }
   renderPage();
 }
 loadPage();
