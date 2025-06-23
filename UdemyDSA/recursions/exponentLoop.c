@@ -23,6 +23,6 @@ long long power(long long a, long long b)
 
 int main()
 {
-  printf("Power: %lld\n", power(2, 12));
+  printf("Power: %lld\n", power(2, 30));
   return 0;
 }
