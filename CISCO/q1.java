@@ -1,24 +1,20 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Solution {
 
-    // Adjacency list to represent the network graph
     private static Map<Integer, List<Integer>> adj = new HashMap<>();
-    
-    // Map to store the market value of each user
     private static Map<Integer, Integer> values = new HashMap<>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // --- 1. Read Inputs ---
         int noOfUsers = scanner.nextInt();
         int noOfConnections = scanner.nextInt();
 
         for (int i = 0; i < noOfConnections; i++) {
             int u = scanner.nextInt();
             int v = scanner.nextInt();
-            // Build undirected graph
             adj.computeIfAbsent(u, k -> new ArrayList<>()).add(v);
             adj.computeIfAbsent(v, k -> new ArrayList<>()).add(u);
         }
@@ -38,7 +34,6 @@ public class Solution {
         
         scanner.close();
 
-        // --- 2. Main Algorithm Logic ---
         List<Integer> chosenSeeds = new ArrayList<>();
         long totalValue = 0;
         long totalCost = 0;
@@ -52,7 +47,6 @@ public class Solution {
             long bestMarginalValue = 0;
             Set<Integer> bestNewUsers = new HashSet<>();
 
-            // Find the most efficient seed among the remaining ones
             for (Map.Entry<Integer, Integer> entry : potentialSeeds.entrySet()) {
                 int currentSeed = entry.getKey();
                 int currentCost = entry.getValue();
@@ -82,40 +76,37 @@ public class Solution {
                 }
             }
 
-            // --- 3. Stopping Condition ---
-            // Stop if no effective seed was found (or all have 0 marginal value)
             if (bestSeed == -1 || bestMarginalValue <= 0) {
                 break;
             }
 
-            // --- 4. Update State with the Chosen Seed ---
             chosenSeeds.add(bestSeed);
             totalCost += bestSeedCost;
             totalValue += bestMarginalValue;
             remainingBudget -= bestSeedCost;
             reachedUsers.addAll(bestNewUsers);
-            potentialSeeds.remove(bestSeed); // This seed can't be chosen again
+            potentialSeeds.remove(bestSeed);
         }
 
-        // --- 5. Print Output ---
-        System.out.println("Chosen Seeds: " + chosenSeeds);
-        System.out.println("Total Value: " + totalValue);
-        System.out.println("Total Cost: " + totalCost);
+        // --- FIX: Corrected Output Formatting ---
+        if (chosenSeeds.isEmpty()) {
+            System.out.println(""); // Or handle as per problem spec for no seeds
+        } else {
+            System.out.println(
+                chosenSeeds.stream()
+                           .map(String::valueOf)
+                           .collect(Collectors.joining(" "))
+            );
+        }
+        System.out.println(totalValue);
+        System.out.println(totalCost);
     }
 
-    /**
-     * Performs a Breadth-First Search (BFS) to find all users reachable from a 
-     * start node within a maximum depth.
-     * @param startNode The starting user ID for the search.
-     * @param maxDepth  The maximum number of connections to traverse.
-     * @return A Set of unique user IDs reachable within the given depth.
-     */
     private static Set<Integer> findReachableUsers(int startNode, int maxDepth) {
         Set<Integer> reachable = new HashSet<>();
         Set<Integer> visited = new HashSet<>();
         Queue<int[]> queue = new LinkedList<>();
 
-        // queue stores pairs of [userID, currentDepth]
         queue.add(new int[]{startNode, 0});
         visited.add(startNode);
         
@@ -130,7 +121,6 @@ public class Solution {
                 continue;
             }
 
-            // Explore neighbors
             for (int neighbor : adj.getOrDefault(user, Collections.emptyList())) {
                 if (!visited.contains(neighbor)) {
                     visited.add(neighbor);
