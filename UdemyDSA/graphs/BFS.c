@@ -78,36 +78,58 @@ int deQueue(Queue *queue)
   return retVal;
 }
 
-void displayQueue(Queue *queue)
+int *bfs(int **graph, int sz, int startNode)
 {
-  printf("The Queue of size %d is:\n", queue->size);
+  int *visitedNode = malloc((sz + 1) * sizeof(int));
+  int *bfsValue = malloc((sz + 1) * sizeof(int));
+  int bfsIdx = 0;
 
-  for (Node *ptr = queue->front; ptr != NULL; ptr = ptr->next)
-    printf("%d ", ptr->data);
+  bfsValue[bfsIdx++] = startNode;
+  visitedNode[startNode] = 1;
+  Queue *q = createQueue();
+  enQueue(q, startNode);
 
-  printf("\n");
+  while (!isEmpty(q))
+  {
+    int node = deQueue(q);
+
+    for (int vertex = 1; vertex <= sz; vertex++)
+    {
+      if (graph[node][vertex] == 1 && visitedNode[vertex] == 0)
+      {
+        visitedNode[vertex] = 1;
+        bfsValue[bfsIdx++] = vertex;
+        enQueue(q, vertex);
+      }
+    }
+  }
+
+  return bfsValue;
 }
 
 int main()
 {
-  Queue *queue = createQueue();
-  printf("Is Empty? : %s\n", isEmpty(queue) ? "YES" : "NO");
-  enQueue(queue, 1);
-  enQueue(queue, 2);
-  enQueue(queue, 3);
-  enQueue(queue, 4);
-  enQueue(queue, 5);
-  displayQueue(queue);
+  int n, edgeSize;
+  scanf("%d %d", &n, &edgeSize);
 
-  printf("deQueued: \n");
-  while (!isEmpty(queue))
-    printf("%d ", deQueue(queue));
+  int **graph = malloc((n + 1) * sizeof(int *));
+  for (int i = 0; i < n + 1; i++)
+    graph[i] = calloc(n + 1, sizeof(int));
+
+  for (int i = 0; i < edgeSize; i++)
+  {
+    int n1, n2;
+    scanf("%d %d", &n1, &n2);
+
+    graph[n1][n2] = 1;
+    graph[n2][n1] = 1;
+  }
+
+  int *bfsVale = bfs(graph, n, 1);
+
+  for (int i = 0; i < n; i++)
+    printf("%d ", bfsVale[i]);
   printf("\n");
-
-  enQueue(queue, 1);
-  enQueue(queue, 2);
-  enQueue(queue, 10);
-  displayQueue(queue);
 
   return 0;
 }
