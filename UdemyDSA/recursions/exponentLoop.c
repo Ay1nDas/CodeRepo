@@ -4,6 +4,9 @@
 long long power(long long a, long long b)
 {
   long long remainderMultiply = 1;
+  if (b == 0)
+    return 1;
+
   while (b > 1)
   {
     if (b % 2 == 0)
