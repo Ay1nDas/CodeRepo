@@ -62,6 +62,25 @@ ll modular_nCr(ll N, int k)
   return (num * invFact[k]) % mod;
 }
 
+ll nCr(ll n, ll r)
+{
+  if (r < 0 || r > n)
+    return 0;
+  r = min(r, n - r);
+  if (r == 0)
+    return 1;
+
+  ll res = 1;
+  for (ll i = 1; i <= r; ++i)
+  {
+    __int128 tmp = (__int128)res * (n - r + i);
+    if (tmp > numeric_limits<ll>::max())
+      return -1;
+    res = (ll)tmp;
+  }
+  return res;
+}
+
 std::map<ll, int> getPrimeFactorization(ll B)
 {
   std::map<ll, int> factors;

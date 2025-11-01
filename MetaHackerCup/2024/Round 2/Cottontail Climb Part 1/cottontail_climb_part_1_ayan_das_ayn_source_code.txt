@@ -75,53 +75,51 @@ int main()
 
   ifstream infile("cottontail_climb_part_1_input.txt");
   ofstream outfile("cottontail_climb_part_1_output.txt");
-
-  vector<ll> allPeaks;
-  for (int i = 1; i <= 18; i++)
-  {
-    ll currPeak = createNum(i, 1);
-    for (int j = 1; j <= 9; j++)
-    {
-      if (currPeak != -1)
-      {
-        allPeaks.push_back(currPeak);
-        currPeak = incNum(currPeak, i);
-      }
-      else
-      {
-        break;
-      }
-    }
-  }
-
-  // for (auto num : allPeaks)
-  // {
-  //   cout << num << endl;
-  // }
-
   fast_io;
   int T;
   infile >> T;
-  // cout << T << endl;
+  // cout << incNum(createNum(17, 1), 17) << endl;
   for (int test_case = 1; test_case <= T; test_case++)
   {
     outfile << "Case #" << test_case << ": ";
-
     ll a, b, m;
     infile >> a >> b >> m;
-    // cout << a << " " << b << " " << m << endl;
 
-    int cnt = 0;
-    for (auto peak : allPeaks)
+    ll aCpy = a;
+    ll minDigCnt = 1;
+    while (aCpy >= 10)
     {
-      if (a <= peak && peak <= b && peak % m == 0)
+      aCpy /= 10;
+      minDigCnt++;
+    }
+    minDigCnt += minDigCnt % 2 == 1 ? 0 : 1;
+
+    aCpy = max(static_cast<int>(aCpy), 1);
+    ll runVal = createNum(minDigCnt, aCpy);
+    if (runVal < a)
+    {
+      runVal = incNum(runVal, minDigCnt);
+    }
+    // cout << runVal << endl;
+
+    int finalCnt = 0;
+    while (runVal <= b && runVal != -1)
+    {
+      // cout << runVal << endl;
+      // cout << "HELLO" << endl;
+      if (runVal % m == 0 && runVal != -1)
       {
-        // cout << peak << endl;
-        cnt++;
+        finalCnt++;
+      }
+
+      runVal = incNum(runVal, minDigCnt);
+      if (runVal == -1)
+      {
+        minDigCnt += 2;
+        runVal = createNum(minDigCnt, 1);
       }
     }
-
-    outfile << cnt << endl;
+    outfile << finalCnt << endl;
   }
 
   return 0;

@@ -1,0 +1,2 @@
+
+    vector<ll> arrangedPrice(n);
