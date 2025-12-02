@@ -149,7 +149,8 @@ int main()
 {
   Tree t1;
 
-  int values[] = {10, 20, 30, 25, 28, 27, 5};
+  // int values[] = {10, 20, 30, 25, 28, 27, 5};
+  int values[] = {1, 2, 3, 4, 5, 6, 7, 8};
   for (int num : values)
   {
     t1.insert(num);
