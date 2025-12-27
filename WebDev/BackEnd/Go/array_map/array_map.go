@@ -2,27 +2,52 @@ package main
 
 import "fmt"
 
+type Product struct {
+	title string
+	id    int
+	price float64
+}
+
 func main() {
-	// arr := []int{}
-	// fmt.Println(arr)
+	hobbies := [3]string{"badminton", "tennis", "gaming"}
+	fmt.Println(hobbies)
 
-	// freq := map[int]int{}
+	fmt.Println(hobbies[0])
+	hobbies2 := hobbies[1:3]
+	fmt.Println(hobbies2)
 
-	// freq[1] = 2
-	// freq[4] = 8
-	// fmt.Println(freq)
+	// hobbies3 := hobbies[:2]
+	hobbies3 := hobbies[0:2]
 
-	// for i, val := range freq {
-	// 	fmt.Println(i, val)
-	// }
+	fmt.Println(hobbies3)
+	hobbies3 = hobbies3[1:3]
+	fmt.Println(hobbies3)
 
-	arr := [4]int{1, 2, 3, 4}
-	fmt.Println(arr)
+	goals := []string{"Back-end", "Contribution"}
+	fmt.Println(goals)
 
-	arrSlice := arr[1:3]
-	fmt.Println(arrSlice)
+	goals[1] = "LFX"
+	goals = append(goals, "Projects")
+	fmt.Println(goals)
 
-	arrSlice2 := arrSlice[:1]
-	arrSlice2 = arrSlice2[:3]
-	fmt.Println(arrSlice2)
+	products := []Product{
+		{
+			"Soap",
+			101,
+			6.99,
+		},
+		{
+			"Chips",
+			102,
+			1.99,
+		},
+	}
+	fmt.Println(products)
+
+	products = append(products, Product{
+		"Detergent",
+		103,
+		10.99,
+	})
+	fmt.Println(products)
 }
