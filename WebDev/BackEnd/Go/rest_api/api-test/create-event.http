@@ -1,9 +1,10 @@
 POST http://localhost:8080/events
 content-type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5YW5AZXhhbXBsZTMuY29tIiwiZXhwIjoxNzY4MTUzMjg4LCJ1c2VySWQiOjN9.8h5dy3_H4C66WhwUtoQjRKB7-4wau84339A4UeYirSg
 
 {
 	"Name": "Ayan's Test Event",
-	"Description": "A test event for API testing",
+	"Description": "A test event Created By 3rd user",
 	"Location": "A test location",
 	"DateTime": "2024-07-15T10:00:00.000Z"
 }
