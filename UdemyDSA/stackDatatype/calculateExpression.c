@@ -237,7 +237,7 @@ int evaluate(char exp[], int size)
 
 int main()
 {
-  char exp[] = "3 * (2 + 3*4)"; // Ans: 21;
+  char exp[] = "3 * (2 + 3*4)"; // Ans: 42;
 
   printf("Value of %s = %d\n", exp, evaluate(exp, sizeof(exp) / sizeof(exp[0])));
   // printf("%d\n", exp[sizeof(exp) / sizeof(exp[0]) - 1]);

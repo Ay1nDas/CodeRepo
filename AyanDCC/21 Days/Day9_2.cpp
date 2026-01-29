@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -22,7 +20,7 @@ int main()
 
     int l{0}, r{0};
     int insect_found{0};
-    int min_dist{INT32_MAX};
+    int min_dist{INT_MAX};
     unordered_map<int, int> freq;
     while (r < n && l <= r)
     {
