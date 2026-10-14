@@ -1,0 +1,8 @@
+/home/ayan/CodeAyan/CodeRepo/C/c-jit/build/CMakeFiles/intrinsics_gen.dir
+/home/ayan/CodeAyan/CodeRepo/C/c-jit/build/CMakeFiles/vt_gen.dir
+/home/ayan/CodeAyan/CodeRepo/C/c-jit/build/CMakeFiles/omp_gen.dir
+/home/ayan/CodeAyan/CodeRepo/C/c-jit/build/CMakeFiles/acc_gen.dir
+/home/ayan/CodeAyan/CodeRepo/C/c-jit/build/CMakeFiles/target_parser_gen.dir
+/home/ayan/CodeAyan/CodeRepo/C/c-jit/build/CMakeFiles/c-jit.dir
+/home/ayan/CodeAyan/CodeRepo/C/c-jit/build/CMakeFiles/edit_cache.dir
+/home/ayan/CodeAyan/CodeRepo/C/c-jit/build/CMakeFiles/rebuild_cache.dir
